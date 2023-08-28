@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use Session;
 use Log;
+use DB;
 
 
 class RegisterController extends Controller
@@ -32,7 +33,7 @@ class RegisterController extends Controller
         
                 //store register data
                 Log::info('User store data');
-
+                
                 $user              = new User();
                 $user->name        = $request->name; 
                 $user->email       = $request->email;
@@ -51,9 +52,9 @@ class RegisterController extends Controller
                     return response()->json(['success' => false,'message' => 'User not register successfully!'], 400);
                 }
                
-            }catch (ModelNotFoundException $ex) { // User not found
-                return response()->json(['status'=>false,'message'=>'Finance Model Not found!'],422);
+               
             } catch (\Exception $e) {
+               
                 return response()->json(['status'=>false,'message'=>'something went wrong'],500);
             }
     }
@@ -74,6 +75,7 @@ class RegisterController extends Controller
 
                 // Throttle the login attempts…
                 Log::info('add login rate limiter!');
+
 
                 $this->middleware('throttle:60,1')->only('login');
  
@@ -100,11 +102,10 @@ class RegisterController extends Controller
                     return response()->json(['status'=>false,'message'=>'Email or Password is wrong!'],401);
                 } 
 
-            }catch (ModelNotFoundException $ex) { // User not found
-                Log::error('User Model Not found!');
-                return response()->json(['status'=>false,'message'=>'User Model Not found!'],422);
+              
             }catch (\Exception $e) {
                 Log::error('something went wrong!');
+               
                 return response()->json(['status'=>false,'message'=>'something went wrong!'],500);
             }    
     }
