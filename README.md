@@ -21,46 +21,43 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Quick Start Project Api setup
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+i have worked on this project "laravel/framework": "^9.19", version and php version "php": "^8.0.2", 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. First Take a pull your local system 
+2. composer install
+3. install a authentacation for passport => composer require laravel/passport
+4. create databse and set .env file
+5. Run php artisan migrate command for migration all table in database
+6. Run php artisan passport:install command
+7. Run seeder php artisan db:seed --class=UserSeeder command for Admin dummy data store
+8. Run php artisn serve command and run project in local server
+9. Set local url in your postman 
+10. Create User Register and login user.
+11. Set Header data like content-type, authorization and accept parameter and pass login user token perform add user transaction data store in database (create/update/get list)
+12. And admin login token add get users transaction data list and delete user transaction based on transaction id and other delete specific user all transaction using user id.
+<br>
+ Admin Login :
+    <br>
+    email : admin@gmail.com
+    password : 12345678
+  
+13. This type local url set api path
+    
+    A. Auth Api Path
+    <strong>http://127.0.0.1:8000/api/register</strong>
+    <strong>http://127.0.0.1:8000/api/login</strong>
+    <strong>http://127.0.0.1:8000/api/logout</strong>
 
-## Laravel Sponsors
+    B. User Api Path
+    <strong>http://127.0.0.1:8000/api/user/store</strong>
+    <strong>http://127.0.0.1:8000/api/user/update/{transaction_id}</strong>
+    <strong>http://127.0.0.1:8000/api/user/list?user_id=2</strong>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    C. Admin Api Path
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    <strong>http://127.0.0.1:8000/api/admin/all-transaction-list</strong>
+    <strong>http://127.0.0.1:8000/api/admin/delete?transaction_id=6</strong>
+    <strong>http://127.0.0.1:8000/api/admin/user-all-transaction-delete?user_id=2</strong>
